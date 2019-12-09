@@ -20,12 +20,10 @@ RUN apt-get update \
     # Verify git, process tools, lsb-release (useful for CLI installs) installed
     && apt-get -y install git procps lsb-release \
     #
-    # Install C++ tools
-    && apt-get -y install build-essential cmake cppcheck valgrind \
     # Install bazel (https://docs.bazel.build/versions/0.26.0/install-ubuntu.html)
     && apt-get -y install pkg-config zip g++ zlib1g-dev unzip python python3-distutils wget bash-completion openjdk-8-jdk-headless \
-    && wget https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel_0.26.1-linux-x86_64.deb \
-    && dpkg -i bazel_0.26.1-linux-x86_64.deb \
+    && wget https://github.com/bazelbuild/bazel/releases/download/0.29.1/bazel_0.29.1-linux-x86_64.deb \
+    && dpkg -i bazel_0.29.1-linux-x86_64.deb \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
@@ -38,7 +36,7 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
-    && rm bazel_0.26.1-linux-x86_64.deb
+    && rm bazel_0.29.1-linux-x86_64.deb
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=
