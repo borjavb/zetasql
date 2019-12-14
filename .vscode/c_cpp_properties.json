@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}",
+                "${workspaceFolder}/bazel-bin/zetasql/resolved_ast/_virtual_includes/resolved_node_kind_proto",
+                "${workspaceFolder}/bazel-bin/zetasql/resolved_ast/_virtual_includes/resolved_ast_proto",
+                "${workspaceFolder}/bazel-bin",
+                "${workspaceFolder}/bazel-zetasql/external/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
