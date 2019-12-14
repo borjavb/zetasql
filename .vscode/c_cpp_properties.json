@@ -7,25 +7,7 @@
 
                 "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin",
 
-                "${workspaceFolder}/bazel-zetasql/external/bazel_tools/**",
-                "${workspaceFolder}/bazel-zetasql/external/bison/**",
-                "${workspaceFolder}/bazel-zetasql/external/com_google_absl/**",
-                "${workspaceFolder}/bazel-zetasql/external/com_google_googletest/**",
-                "${workspaceFolder}/bazel-zetasql/external/com_google_protobuf/**",
-                "${workspaceFolder}/bazel-zetasql/external/com_google_re2/**",
-                "${workspaceFolder}/bazel-zetasql/external/com_googleapis_googleapis/**",
-                "${workspaceFolder}/bazel-zetasql/external/flex/**",
-                "${workspaceFolder}/bazel-zetasql/external/foreign_cc_platform_utils/**",
-                "${workspaceFolder}/bazel-zetasql/external/icu/**",
-                "${workspaceFolder}/bazel-zetasql/external/io_abseil_py/**",
-                "${workspaceFolder}/bazel-zetasql/external/jinja/**",
-                "${workspaceFolder}/bazel-zetasql/external/local_config_cc/**",
-                "${workspaceFolder}/bazel-zetasql/external/m4/**",
-                "${workspaceFolder}/bazel-zetasql/external/markupsafe/**",
-                "${workspaceFolder}/bazel-zetasql/external/platforms/**",
-                "${workspaceFolder}/bazel-zetasql/external/rules_foreign_cc/**",
-                "${workspaceFolder}/bazel-zetasql/external/six_archive/**",
-                
+                "${workspaceFolder}/bazel-zetasql/external/**",
 
                 "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/bazel_tools",
                 "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/boringssl",
