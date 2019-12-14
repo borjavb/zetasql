@@ -21,7 +21,7 @@ RUN apt-get update \
     && apt-get -y install git procps lsb-release \
     #
     # Install bazel (https://docs.bazel.build/versions/0.26.0/install-ubuntu.html)
-    && apt-get -y install pkg-config zip g++ zlib1g-dev unzip python python3-distutils wget bash-completion openjdk-8-jdk-headless \
+    && apt-get -y install pkg-config zip g++ zlib1g-dev unzip python python3-distutils wget bash-completion openjdk-8-jdk-headless tzdata \
     && wget https://github.com/bazelbuild/bazel/releases/download/0.29.1/bazel_0.29.1-linux-x86_64.deb \
     && dpkg -i bazel_0.29.1-linux-x86_64.deb \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
