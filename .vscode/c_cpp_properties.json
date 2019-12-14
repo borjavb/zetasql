@@ -5,9 +5,9 @@
             "includePath": [
                 "${workspaceFolder}",
                 "${workspaceFolder}/bazel-zetasql/external/**",
-                "${workspaceFolder}/bazel-out/k8-fastbuild/bin",
-                "${workspaceFolder}/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_ast_proto",
-                "${workspaceFolder}/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_node_kind_proto"
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_ast_proto",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_node_kind_proto"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
