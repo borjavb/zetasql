@@ -14,22 +14,30 @@
 // limitations under the License.
 //
 
-// resolved_ast.proto GENERATED FROM resolved_ast.proto.template
 syntax = "proto2";
 
 package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_multiple_files = true;
-option java_outer_classname = "ZetaSQLResolvedAST";
+import "google/protobuf/descriptor.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
-option optimize_for = CODE_SIZE;
+// resolved_ast.proto GENERATED FROM resolved_ast.proto.template
 
-import "zetasql/public/proto/type_annotation.proto";
-import "zetasql/public/type.proto";
-import "zetasql/proto/function.proto";
-import "zetasql/resolved_ast/serialization.proto";
-import "zetasql/resolved_ast/resolved_ast_enums.proto";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // AnyResolvedNodeProto is a container that can hold at most one proto
 // representation of a ResolvedNode
@@ -3251,12 +3259,12 @@ message ResolvedAssignmentStmtProto {
 //
 
 // resolved_node_kind.proto GENERATED FROM resolved_node_kind.proto.template
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLResolvedNodeKind";
+
+
+
+
 
 // Enum for types of ResolvedNode classes.
 // Generated as a separate file to avoid circular dependencies.
@@ -3409,24 +3417,24 @@ enum ResolvedNodeKind {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql.local_service;
 
-import "google/protobuf/empty.proto";
-import "google/protobuf/descriptor.proto";
-import "zetasql/proto/function.proto";
-import "zetasql/proto/options.proto";
-import "zetasql/proto/simple_catalog.proto";
-import "zetasql/public/options.proto";
-import "zetasql/public/parse_resume_location.proto";
-import "zetasql/public/simple_table.proto";
-import "zetasql/public/type.proto";
-import "zetasql/public/value.proto";
-import "zetasql/resolved_ast/resolved_ast.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "LocalService";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Note that *all* service RPCs are locked down to only be authorized by
 // the user that started the ZetaSql service.  This disallows random users
@@ -3735,21 +3743,21 @@ message LanguageOptionsRequest {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "FunctionProtos";
+
+
+
+
 
 // Public enum and message definitions.
-import "zetasql/public/deprecation_warning.proto";
-import "zetasql/public/function.proto";
-import "zetasql/public/options.proto";
-import "zetasql/public/parse_location_range.proto";
-import "zetasql/public/parse_resume_location.proto";
-import "zetasql/public/type.proto";
-import "zetasql/resolved_ast/serialization.proto";
+
+
+
+
+
+
+
 
 // Wire format of Function related messages, these shouldn't be exposed to end
 // users normally.
@@ -3900,14 +3908,14 @@ message ProcedureProto {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "InternalErrorLocationProtos";
 
-import "zetasql/public/error_location.proto";
+
+
+
+
+
 
 // Serialized form of ParseLocationPoint, only to be used inside the
 // ZetaSQL library to attach an error location in internal form to a
@@ -3939,17 +3947,17 @@ message InternalErrorLocation {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-import "zetasql/public/builtin_function.proto";
-import "zetasql/public/options.proto";
-import "zetasql/public/type.proto";
-import "zetasql/resolved_ast/resolved_node_kind.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLOptionsProto";
+
+
+
+
+
+
+
+
 
 // Specify what built-in functions should be load.
 // Used for getting built-in functions through local server.
@@ -4039,18 +4047,18 @@ message AnalyzerOptionsProto {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-import "zetasql/proto/function.proto";
-import "zetasql/proto/options.proto";
-import "zetasql/public/simple_constant.proto";
-import "zetasql/public/simple_table.proto";
-import "zetasql/public/type.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "SimpleCatalogProtos";
+
+
+
+
+
+
+
+
+
 
 message SimpleCatalogProto {
   message NamedTypeProto {
@@ -4091,12 +4099,12 @@ message SimpleCatalogProto {
 
 // LINT: LEGACY_NAMES
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLFunction";
+
+
+
+
 
 // A unique ID for ZetaSQL function signatures.  Resolved ZetaSQL functions
 // will provide one of these enums, and ZetaSQL implementations should map
@@ -4876,14 +4884,14 @@ enum FunctionSignatureId {
 
 // LINT: LEGACY_NAMES
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "DeprecationWarningProtos";
 
-import "zetasql/public/error_location.proto";
+
+
+
+
+
 
 // Contains information about a deprecation warning emitted by the
 // analyzer. Currently attached to any util::Status returned by
@@ -4939,11 +4947,11 @@ message FreestandingDeprecationWarning {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
+
+
+
 
 // This proto is used as a util::Status error payload to give the location
 // for SQL parsing and analysis errors.
@@ -5018,12 +5026,12 @@ message ErrorSource {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLFunctions";
+
+
+
+
 
 enum SignatureArgumentKind {
   // A specific concrete Type.  Each argument with ARG_TYPE_FIXED should include
@@ -5216,14 +5224,14 @@ message FunctionEnums {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-import "google/protobuf/descriptor.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLOptions";
+
+
+
+
+
 
 // ZetaSQL language versions.
 // See (broken link) for more detail.
@@ -5849,13 +5857,13 @@ enum ParameterMode {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_multiple_files = true;
-option java_outer_classname = "ZetaSqlParseLocationProtos";
+
+
+
+
+
 
 // This message stores the start and end byte offsets of a parsed string. It
 // also (optionally) stores the name of the file where this parsed string is
@@ -5886,12 +5894,12 @@ message ParseLocationRangeProto {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLParser";
+
+
+
+
 
 message ParseResumeLocationProto {
   // The filename associated with the input string (if any).
@@ -5919,15 +5927,15 @@ message ParseResumeLocationProto {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-import "zetasql/public/type.proto";
-import "zetasql/public/value.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "SimpleConstantProtos";
+
+
+
+
+
+
 
 message SimpleConstantProto {
   repeated string name_path = 1;
@@ -5950,14 +5958,14 @@ message SimpleConstantProto {
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-import "zetasql/public/type.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "SimpleTableProtos";
+
+
+
+
+
 
 message SimpleTableProto {
   optional string name = 1;
@@ -5996,15 +6004,15 @@ message SimpleColumnProto {
 //
 
 // LINT: LEGACY_NAMES
-syntax = "proto2";
 
-package zetasql;
 
-import "google/protobuf/descriptor.proto";
 
-option cc_enable_arenas = true;
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLType";
+
+
+
+
+
+
 
 // NEXT_ID: 24
 enum TypeKind {
@@ -6118,13 +6126,13 @@ message EnumTypeProto {
 //
 
 // This is a forwarding file.
-syntax = "proto2";
 
-package zetasql;
 
-import "zetasql/public/proto/type_annotation.proto";
 
-option java_package = "com.google.zetasql";
+
+
+
+
 //
 // Copyright 2019 ZetaSQL Authors
 //
@@ -6142,15 +6150,15 @@ option java_package = "com.google.zetasql";
 //
 
 // LINT: LEGACY_NAMES
-syntax = "proto2";
 
-package zetasql;
 
-import "google/protobuf/timestamp.proto";
 
-option cc_enable_arenas = true;
-option java_package = "com.google.zetasql";
-option java_outer_classname = "ZetaSQLValue";
+
+
+
+
+
+
 
 // ValueProto represents the serialized form of the zetasql::Value.
 // Unlike zetasql::Value, ValueProto does not carry full type information with
@@ -6263,15 +6271,15 @@ message ValueProto {
 
 // LINT: LEGACY_NAMES
 
-syntax = "proto2";
 
-package zetasql;
 
-import "google/protobuf/descriptor.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "TypeAnnotationProto";
-option cc_enable_arenas = true;
+
+
+
+
+
+
 
 message FieldFormat {
   enum Format {
@@ -6454,14 +6462,14 @@ extend google.protobuf.MessageOptions {
 //
 // LINT: LEGACY_NAMES
 
-syntax = "proto2";
 
-package zetasql;
 
-import "google/protobuf/descriptor.proto";
 
-option java_package = "com.google.zetasql";
-option java_outer_classname = "WireFormatAnnotationProto";
+
+
+
+
+
 
 extend google.protobuf.FieldOptions {
   // Indicate that when the containing proto is interpreted as a STRUCT type
@@ -6629,13 +6637,13 @@ message WireFormatAnnotationEmptyMessage {}
 // limitations under the License.
 //
 
-syntax = "proto2";
 
-package zetasql;
 
-option java_package = "com.google.zetasql.resolvedast";
-option java_multiple_files = true;
-option java_outer_classname = "ZetaSQLResolvedASTEnums";
+
+
+
+
+
 
 // These are enums that are used in the Resolved AST nodes.
 // Enum type and values under <cpp_class_name>Enums will be "imported" to the
@@ -6865,17 +6873,17 @@ message ResolvedForeignKeyEnums {
 //
 
 // Common types for serializing the ResolvedAST
-syntax = "proto2";
 
-package zetasql;
 
-import "zetasql/public/parse_location_range.proto";
-import "zetasql/public/type.proto";
-import "zetasql/public/value.proto";
 
-option java_package = "com.google.zetasql";
-option java_multiple_files = true;
-option java_outer_classname = "ZetaSQLSerialization";
+
+
+
+
+
+
+
+
 
 // Reference to a ResolvedColumn.
 message ResolvedColumnProto {
