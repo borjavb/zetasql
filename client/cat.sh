@@ -5,7 +5,7 @@
 bazel build zetasql/local_service:local_service_proto  
 
 cat \
-    bazel-out/darwin-fastbuild/bin/zetasql/resolved_ast/*.proto \
+    bazel-bin/zetasql/resolved_ast/*.proto \
     zetasql/local_service/*.proto \
     zetasql/proto/*.proto \
     zetasql/public/*.proto \
