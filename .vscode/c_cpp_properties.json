@@ -46,9 +46,10 @@
                 "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/upb",
                 "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/zlib",
                 
-                
                 "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_ast_proto",
-                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_node_kind_proto"
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_node_kind_proto",
+
+                "${workspaceFolder}/bazel-zetasql/../../external/com_github_grpc_grpc/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

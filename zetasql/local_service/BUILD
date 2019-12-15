@@ -179,3 +179,12 @@ cc_binary(
     linkshared = 1,
     deps = [":local_service_jni"],
 )
+
+cc_binary(
+    name = "remote_server",
+    srcs = ["remote_server.cc"],
+    deps = [
+        ":local_service_grpc",
+        "@com_github_grpc_grpc//:grpc++",
+    ]
+)
