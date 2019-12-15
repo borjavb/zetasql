@@ -48,3 +48,27 @@ zetasql_deps_step_3()
 load("@com_google_zetasql//bazel:zetasql_deps_step_4.bzl", "zetasql_deps_step_4")
 
 zetasql_deps_step_4()
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# Download the rules_docker repository at release v0.12.1
+http_archive(
+    name = "io_bazel_rules_docker",
+    sha256 = "14ac30773fdb393ddec90e158c9ec7ebb3f8a4fd533ec2abbfd8789ad81a284b",
+    strip_prefix = "rules_docker-0.12.1",
+    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.12.1/rules_docker-v0.12.1.tar.gz"],
+)
+
+load(
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
+    container_repositories = "repositories",
+)
+
+container_repositories()
+
+load(
+    "@io_bazel_rules_docker//cc:image.bzl",
+    _cc_image_repos = "repositories",
+)
+
+_cc_image_repos()

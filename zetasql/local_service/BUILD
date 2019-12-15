@@ -180,7 +180,9 @@ cc_binary(
     deps = [":local_service_jni"],
 )
 
-cc_binary(
+load("@io_bazel_rules_docker//cc:image.bzl", "cc_image")
+
+cc_image(
     name = "remote_server",
     srcs = ["remote_server.cc"],
     deps = [
