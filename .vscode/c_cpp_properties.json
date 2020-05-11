@@ -1,0 +1,62 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}",
+
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin",
+
+                "${workspaceFolder}/bazel-zetasql/external/**",
+
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/bazel_tools",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/boringssl",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_github_cares_cares",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_github_grpc_grpc",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_absl",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_api_grpc_proto_google_common_protos",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_auto_common",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_auto_service",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_auto_value_annotations",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_code_findbugs_jsr305",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_code_gson_gson",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_errorprone_error_prone_annotations",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_googletest",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_guava_failureaccess",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_guava_guava",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_guava_testlib",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_j2objc_j2objc_annotations",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_protobuf",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_re2",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_truth_proto_extension",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_google_truth_truth",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/com_googleapis_googleapis",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/icu",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/io_grpc_grpc_core",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/io_grpc_grpc_java",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/io_grpc_grpc_netty",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/io_netty_netty_codec_http2",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/io_netty_netty_common",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/io_netty_netty_transport",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/javax_annotation_javax_annotation_api",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/joda_time",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/junit_junit",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/native_utils",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/six_archive",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/upb",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/external/zlib",
+                
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_ast_proto",
+                "${workspaceFolder}/bazel-zetasql/bazel-out/k8-fastbuild/bin/zetasql/resolved_ast/_virtual_includes/resolved_node_kind_proto",
+
+                "${workspaceFolder}/bazel-zetasql/../../external/com_github_grpc_grpc/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

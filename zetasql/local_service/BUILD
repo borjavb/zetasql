@@ -185,3 +185,14 @@ cc_binary(
     linkshared = 1,
     deps = [":local_service_jni"],
 )
+
+load("@io_bazel_rules_docker//cc:image.bzl", "cc_image")
+
+cc_image(
+    name = "remote_server",
+    srcs = ["remote_server.cc"],
+    deps = [
+        ":local_service_grpc",
+        "@com_github_grpc_grpc//:grpc++",
+    ]
+)
