@@ -22,8 +22,8 @@ RUN apt-get update \
     #
     # Install bazel (https://docs.bazel.build/versions/0.26.0/install-ubuntu.html)
     && apt-get -y install pkg-config zip g++ zlib1g-dev unzip python python3-distutils wget bash-completion openjdk-8-jdk-headless tzdata \
-    && wget https://github.com/bazelbuild/bazel/releases/download/1.0.0/bazel_1.0.0-linux-x86_64.deb \
-    && dpkg -i bazel_1.0.0-linux-x86_64.deb \
+    && wget https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel_3.1.0-linux-x86_64.deb \
+    && dpkg -i bazel_3.1.0-linux-x86_64.deb \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
@@ -36,7 +36,7 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* \
-    && rm bazel_1.0.0-linux-x86_64.deb
+    && rm bazel_3.1.0-linux-x86_64.deb
 
 # Install rust
 ENV RUSTUP_HOME=/usr/local/rustup \
