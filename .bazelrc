@@ -20,4 +20,4 @@
 # widely accepted by compilers. This may lead to strange behavior or compiler
 # errors in earlier compilers.
 build --cxxopt="-std=c++1z"
-build --jobs 4
+build --local_ram_resources=5000 --local_cpu_resources=1
