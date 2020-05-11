@@ -13,7 +13,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Make out dir and run build:
     //   mkdir out
     //   cargo build
-    tonic_build::configure().out_dir("out").compile(
+    tonic_build::configure().out_dir("target").compile(
         &[
             "zetasql/resolved_ast/resolved_ast.proto",
             "zetasql/resolved_ast/resolved_node_kind.proto",
@@ -39,7 +39,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "zetasql/resolved_ast/resolved_ast_enums.proto",
             "zetasql/resolved_ast/serialization.proto",
         ],
-        &[".", "bazel-bin", "bazel-bin/external/com_google_protobuf/"],
+        &["..", "../bazel-bin", "../bazel-bin/external/com_google_protobuf/"],
     )?;
     Ok(())
 }
