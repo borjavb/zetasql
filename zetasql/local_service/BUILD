@@ -196,3 +196,14 @@ cc_image(
         "@com_github_grpc_grpc//:grpc++",
     ]
 )
+
+load("@io_bazel_rules_docker//container:container.bzl", "container_push")
+
+container_push(
+    name = "publish_remote_server",
+    image = ":remote_server",
+    format = "Docker",
+    registry = "gcr.io",
+    repository = "analog-delight-604/zetasql-server",
+    visibility = ["//visibility:public"],
+)
