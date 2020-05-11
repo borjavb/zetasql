@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
-
+FROM docker:17.12.0-ce as static-docker-source
 FROM ubuntu:18.04
 
 # Avoid warnings by switching to noninteractive
@@ -12,6 +12,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
+
+COPY --from=static-docker-source /usr/local/bin/docker /usr/local/bin/docker
 
 # Configure apt and install packages
 RUN apt-get update \
@@ -31,7 +33,11 @@ RUN apt-get update \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
-    #
+    # Install gcloud
+    && echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
+    && wget -O - https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - \
+    && apt-get update -y \
+    && apt-get install google-cloud-sdk -y \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \

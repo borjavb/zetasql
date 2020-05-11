@@ -199,6 +199,9 @@ cc_image(
 
 load("@io_bazel_rules_docker//container:container.bzl", "container_push")
 
+# To authenticate, you must first configure your system with:
+#   gcloud auth login
+#   gcloud auth configure-docker
 container_push(
     name = "publish_remote_server",
     image = ":remote_server",
