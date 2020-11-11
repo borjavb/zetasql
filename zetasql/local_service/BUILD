@@ -269,3 +269,28 @@ cc_binary(
     linkshared = 1,
     deps = [":local_service_jni"],
 )
+
+load("@io_bazel_rules_docker//cc:image.bzl", "cc_image")
+
+cc_image(
+    name = "remote_server",
+    srcs = ["remote_server.cc"],
+    deps = [
+        ":local_service_grpc",
+        "@com_github_grpc_grpc//:grpc++",
+    ]
+)
+
+load("@io_bazel_rules_docker//container:container.bzl", "container_push")
+
+# To authenticate, you must first configure your system with:
+#   gcloud auth login
+#   gcloud auth configure-docker
+container_push(
+    name = "publish_remote_server",
+    image = ":remote_server",
+    format = "Docker",
+    registry = "gcr.io",
+    repository = "analog-delight-604/zetasql-server",
+    visibility = ["//visibility:public"],
+)
