@@ -6167,6 +6167,26 @@ ResolvedArgumentRef(y)
       ])
 
   gen.AddNode(
+      name='ResolvedSingleAssignmentStmt',
+      tag_id=160,
+      parent='ResolvedStatement',
+      comment="""
+      An assignment of a value to another value.
+      """,
+      fields=[
+          Field(
+              'variable',
+              SCALAR_STRING,
+              tag_id=2,
+              comment='Target of the assignment.'),
+          Field(
+              'expr',
+              'ResolvedExpr',
+              tag_id=3,
+              comment='Value to assign into the target.')
+      ])
+
+  gen.AddNode(
       name='ResolvedCreateEntityStmt',
       tag_id=154,
       parent='ResolvedCreateStatement',

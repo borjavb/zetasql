@@ -131,6 +131,13 @@ class ResolverTest : public ::testing::Test {
                                         resolved_expression);
   }
 
+  absl::Status ResolveStmtX(
+      const std::string& sql,
+      const ASTStatement* statement,
+      std::unique_ptr<const ResolvedStatement>* resolved_statement) {
+    return resolver_->ResolveStatement(sql, statement, resolved_statement);
+  }
+
   absl::Status FindFieldDescriptors(
       absl::Span<const ASTIdentifier* const> path_vector,
       const google::protobuf::Descriptor* root_descriptor,
@@ -154,6 +161,22 @@ class ResolverTest : public ::testing::Test {
     ASSERT_THAT(resolved_expression.get(), NotNull()) << cast_expression;
     EXPECT_TRUE(expected_cast_type->Equals(resolved_expression->type()))
         << cast_expression;
+  }
+
+  void TestSingleAssignmentStatement(const std::string& set_statement,
+                                     const Type* expected_variable_type) {
+    std::unique_ptr<ParserOutput> parser_output;
+    std::unique_ptr<const ResolvedStatement> resolved_statement;
+    ZETASQL_ASSERT_OK(ParseStatement(set_statement, ParserOptions(), &parser_output))
+        << set_statement;
+    const ASTStatement* parsed_statement = parser_output->statement();
+    ASSERT_THAT(parsed_statement, NotNull()) << set_statement;
+    ZETASQL_EXPECT_OK(ResolveStmtX(set_statement, parsed_statement, &resolved_statement))
+        << set_statement;
+    ASSERT_THAT(resolved_statement.get(), NotNull()) << set_statement;
+    EXPECT_TRUE(resolved_statement.get()->Is<ResolvedSingleAssignmentStmt>()) << set_statement;
+    EXPECT_TRUE(expected_variable_type->Equals(resolved_statement.get()->GetAs<ResolvedSingleAssignmentStmt>()->expr()->type()))
+        << set_statement;
   }
 
   zetasql_base::StatusOr<std::unique_ptr<const ResolvedExpr>> ResolveAndCoerce(
@@ -600,6 +623,10 @@ TEST_F(ResolverTest, TestErrorCatalogNameTests) {
                   query_with_tvf, parser_output->statement(), &resolved_ast),
               StatusIs(absl::StatusCode::kInvalidArgument,
                        HasSubstr("Invalid table-valued function foo")));
+}
+
+TEST_F(ResolverTest, TestResolveSingleAssignmentStmt) {
+  TestSingleAssignmentStatement("set x = 1", types::Int64Type());
 }
 
 TEST_F(ResolverTest, TestResolveCastExpression) {

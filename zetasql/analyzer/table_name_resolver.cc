@@ -714,7 +714,7 @@ absl::Status TableNameResolver::FindInStatement(const ASTStatement* statement) {
 
   // This statement is not currently supported so we return an error here.
   return MakeSqlErrorAt(statement)
-         << "Statement not supported: " << statement->GetNodeKindString();
+         << "Statement not supported (table name resolver): " << statement->GetNodeKindString();
 }
 
 absl::Status TableNameResolver::FindInQueryStatement(

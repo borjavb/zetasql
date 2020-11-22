@@ -1299,6 +1299,10 @@ class Resolver {
       const ASTSystemVariableAssignment* ast_statement,
       std::unique_ptr<ResolvedStatement>* output);
 
+  absl::Status ResolvedSingleAssignment(
+      const ASTSingleAssignment* ast_statement,
+      std::unique_ptr<ResolvedStatement>* output);
+
   static absl::Status CreateSelectNamelists(
       const SelectColumnState* select_column_state,
       NameList* post_group_by_alias_name_list,

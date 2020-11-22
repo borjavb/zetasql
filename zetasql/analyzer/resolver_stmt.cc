@@ -563,6 +563,12 @@ absl::Status Resolver::ResolveStatement(
             statement->GetAsOrDie<ASTSystemVariableAssignment>(), &stmt));
       }
       break;
+    case AST_SINGLE_ASSIGNMENT:
+      if (language().SupportsStatementKind(RESOLVED_ASSIGNMENT_STMT)) {
+        ZETASQL_RETURN_IF_ERROR(ResolvedSingleAssignment(
+            statement->GetAsOrDie<ASTSingleAssignment>(), &stmt));
+      }
+      break;
     default:
       break;
   }
@@ -570,7 +576,7 @@ absl::Status Resolver::ResolveStatement(
   if (stmt == nullptr) {
     // This statement is not currently supported so we return an error here.
     return MakeSqlErrorAt(statement)
-           << "Statement not supported: " << statement->GetNodeKindString();
+           << "Statement not supported (statement resolver): " << statement->GetNodeKindString();
   }
 
   ZETASQL_RETURN_IF_ERROR(ValidateUndeclaredParameters(stmt.get()));
@@ -4678,6 +4684,20 @@ absl::Status Resolver::ResolveSystemVariableAssignment(
 
   std::unique_ptr<ResolvedAssignmentStmt> result =
       MakeResolvedAssignmentStmt(std::move(target), std::move(resolved_expr));
+  *output = std::unique_ptr<ResolvedStatement>(std::move(result));
+  return absl::OkStatus();
+}
+
+absl::Status Resolver::ResolvedSingleAssignment(
+    const ASTSingleAssignment* ast_statement,
+    std::unique_ptr<ResolvedStatement>* output) {
+  std::unique_ptr<const ResolvedExpr> resolved_expr;
+  ZETASQL_RETURN_IF_ERROR(ResolveScalarExpr(ast_statement->expression(),
+                                    empty_name_scope_.get(), "SET statement",
+                                    &resolved_expr));
+
+  std::unique_ptr<ResolvedSingleAssignmentStmt> result =
+      MakeResolvedSingleAssignmentStmt(ast_statement->variable()->GetAsString(), std::move(resolved_expr));
   *output = std::unique_ptr<ResolvedStatement>(std::move(result));
   return absl::OkStatus();
 }
