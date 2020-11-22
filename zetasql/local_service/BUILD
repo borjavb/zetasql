@@ -270,11 +270,21 @@ cc_binary(
     deps = [":local_service_jni"],
 )
 
-load("@io_bazel_rules_docker//cc:image.bzl", "cc_image")
+load("@io_bazel_rules_docker//container:image.bzl", "container_image")
+load("@io_bazel_rules_docker//cc:image.bzl", "cc_image", CC_DEFAULT_BASE="DEFAULT_BASE")
+
+container_image(
+    name = "remote_server_base",
+    base = CC_DEFAULT_BASE,
+    ports = ["50051"],
+    legacy_run_behavior = False,
+    docker_run_flags = "--publish 127.0.0.1:50051:50051",
+)
 
 cc_image(
     name = "remote_server",
     srcs = ["remote_server.cc"],
+    base = ":remote_server_base",
     deps = [
         ":local_service_grpc",
         "@com_github_grpc_grpc//:grpc++",
