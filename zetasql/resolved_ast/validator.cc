@@ -1941,6 +1941,10 @@ absl::Status Validator::ValidateResolvedStatement(
       status = ValidateResolvedAssignmentStmt(
           statement->GetAs<ResolvedAssignmentStmt>());
       break;
+    case RESOLVED_SINGLE_ASSIGNMENT_STMT:
+      status = ValidateResolvedSingleAssignmentStmt(
+          statement->GetAs<ResolvedSingleAssignmentStmt>());
+      break;
     case RESOLVED_EXECUTE_IMMEDIATE_STMT:
       status = ValidateResolvedExecuteImmediateStmt(
           statement->GetAs<ResolvedExecuteImmediateStmt>());
@@ -3489,6 +3493,14 @@ absl::Status Validator::ValidateResolvedAssignmentStmt(
   ZETASQL_RETURN_IF_ERROR(ValidateResolvedExpr(
       /*visible_columns=*/{}, /*visible_parameters=*/{}, stmt->expr()));
   ZETASQL_RET_CHECK(stmt->expr()->type()->Equals(stmt->target()->type()));
+  return absl::OkStatus();
+}
+
+absl::Status Validator::ValidateResolvedSingleAssignmentStmt(
+    const ResolvedSingleAssignmentStmt* stmt) {
+  ZETASQL_RET_CHECK(stmt->expr() != nullptr);
+  ZETASQL_RETURN_IF_ERROR(ValidateResolvedExpr(
+      /*visible_columns=*/{}, /*visible_parameters=*/{}, stmt->expr()));
   return absl::OkStatus();
 }
 

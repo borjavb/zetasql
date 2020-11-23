@@ -133,6 +133,8 @@ class Validator {
   absl::Status ValidateResolvedAssertStmt(const ResolvedAssertStmt* stmt);
   absl::Status ValidateResolvedAssignmentStmt(
       const ResolvedAssignmentStmt* stmt);
+  absl::Status ValidateResolvedSingleAssignmentStmt(
+      const ResolvedSingleAssignmentStmt* stmt);
 
   // DML Statements, which can also be used as nested operations inside UPDATEs.
   // When used nested, they take a non-NULL <array_element_column> and
