@@ -564,7 +564,7 @@ absl::Status Resolver::ResolveStatement(
       }
       break;
     case AST_SINGLE_ASSIGNMENT:
-      if (language().SupportsStatementKind(RESOLVED_ASSIGNMENT_STMT)) {
+      if (language().SupportsStatementKind(RESOLVED_SINGLE_ASSIGNMENT_STMT)) {
         ZETASQL_RETURN_IF_ERROR(ResolvedSingleAssignment(
             statement->GetAsOrDie<ASTSingleAssignment>(), &stmt));
       }
