@@ -1420,6 +1420,10 @@ absl::Status Resolver::ResolveUpdateStatement(
                                         &target_alias, &resolved_table_scan,
                                         &target_name_list));
 
+  // Avoids pruning columns from the updated table.
+  RecordColumnAccess(resolved_table_scan->column_list(),
+                     ResolvedStatement::READ);
+
   if (ast_statement->offset() != nullptr) {
     return MakeSqlErrorAt(ast_statement->offset())
            << "Non-nested UPDATE statement does not support WITH OFFSET";
