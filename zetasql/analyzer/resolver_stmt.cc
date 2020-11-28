@@ -576,7 +576,7 @@ absl::Status Resolver::ResolveStatement(
   if (stmt == nullptr) {
     // This statement is not currently supported so we return an error here.
     return MakeSqlErrorAt(statement)
-           << "Statement not supported (statement resolver): " << statement->GetNodeKindString();
+           << "Statement not supported: " << statement->GetNodeKindString();
   }
 
   ZETASQL_RETURN_IF_ERROR(ValidateUndeclaredParameters(stmt.get()));

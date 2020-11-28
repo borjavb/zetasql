@@ -774,7 +774,7 @@ static absl::Status UnsupportedStatementErrorOrStatus(
       && !options.language().SupportsStatementKind(kind)) {
     ParseLocationPoint location_point = ParseLocationPoint::FromByteOffset(
         resume_location.filename(), resume_location.byte_position());
-    return MakeSqlErrorAtPoint(location_point) << "Statement not supported (options): "
+    return MakeSqlErrorAtPoint(location_point) << "Statement not supported: "
         << ResolvedNodeKindToString(kind);
   }
   return status;
